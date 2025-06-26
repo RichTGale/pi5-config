@@ -49,6 +49,7 @@ make
 sudo make install
 
 printf "\nYou now have the option to change swapfile space. Press ENTER to continue...\n"
+input pressEnter
 sudo dphys-swapfile swapoff
 sudo vim /etc/dphys-swapfile
 sudo dphys-swapfile setup
