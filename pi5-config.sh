@@ -150,3 +150,5 @@ sudo apt autoremove -y
 
 printf "\nThe script has finished. Press ENTER to reboot...\n"
 read pressEnter
+
+sudo reboot
