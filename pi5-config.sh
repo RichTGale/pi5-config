@@ -14,8 +14,7 @@ sudo apt update
 sudo apt full-upgrade -y
 
 printf "\nInstalling some utilities and dependencies...\n"
-sudo apt install vim git zsh dkms build-essential cmake unzip libelf-dev \
-    linux-headers-$(uname -r) -y
+sudo apt install vim git zsh dkms build-essential cmake unzip libelf-dev linux-headers-$(uname -r) -y
 
 printf "\nConfiguring vim...\n"
 cd $HOME/Programming
@@ -43,8 +42,7 @@ if [ "$response" != "n" ]; then
     sudo make dkms_install
 fi
 
-printf "\nWould you like to install pigpio (https://github.com/joan2937/pigpio)? \
-    It is a C library for programming the computer's GPIO pins. (Y/n): "
+printf "\nWould you like to install pigpio (https://github.com/joan2937/pigpio)? It is a C library for programming the computer's GPIO pins. (Y/n): "
 read response
 printf "\n"
 if [ "$response" != "n" ]; then
@@ -78,11 +76,7 @@ if [ "$response" != "n" ]; then
     sudo dpkg --add-architecture armhf
     sudo apt update
     sudo apt upgrade -y
-    sudo apt install git cmake gcc-arm-linux-gnueabihf libgdm1:armhf \ 
-    libudev1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf \
-    libglu1-mesa:armhf libglx-mesa0:armhf mesa-va-drivers:armhf \
-    mesa-vdpau-drivers:armhf mesa-vulkan-drivers:armhf libsdl1.2debian:armhf \
-    libegl-mesa0:armhf libc6:armhf mesa-vulkan-drivers -y
+    sudo apt install git cmake gcc-arm-linux-gnueabihf libgdm1:armhf libudev1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf libglu1-mesa:armhf libglx-mesa0:armhf mesa-va-drivers:armhf mesa-vdpau-drivers:armhf mesa-vulkan-drivers:armhf libsdl1.2debian:armhf libegl-mesa0:armhf libc6:armhf mesa-vulkan-drivers -y
 
     printf "\nBuilding and installing box64...\n"
     cd $HOME/Programs
@@ -104,8 +98,7 @@ if [ "$response" != "n" ]; then
     cd $HOME/Programs/box86
     ./install_steam.sh
 
-    printf "\nSteam is now hopefully installed. The computer will reboot at the end of the script. \ 
-        After it reboots, open a terminal and type \"steam\" then press ENTER to launch steam.\nPress ENTER to continue.\n"
+    printf "\nSteam is now hopefully installed. The computer will reboot at the end of the script. After it reboots, open a terminal and type \"steam\" then press ENTER to launch steam.\nPress ENTER to continue.\n"
     read pressEnter
 fi
 
@@ -114,12 +107,7 @@ read response
 printf "\n"
 if [ "$response" != "n" ]; then
     printf "\nInstalling SDL2...\n"
-    sudo apt-get install build-essential git make curl jq \
-    pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
-    libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
-    libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev \
-    libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
-    libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev fcitx-libs-dev
+    sudo apt install build-essential git make curl jq pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev fcitx-libs-dev
 
     cd $HOME/Programs
     version=$(curl -sL https://api.github.com/repos/libsdl-org/SDL/releases/latest | jq -r '.name')
