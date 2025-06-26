@@ -55,5 +55,3 @@ sudo dphys-swapfile setup
 sudo dphys-swapfile swapon
 
 sudo apt autoremove -y
-#printf "\nIf you are installing a Pi camera, it might help to load the camera drivers explicitly...\nYou can find more info here: https://www.raspberrypi.com/documentation/computers/camera_software.html#configuration\nNote for Richard: For V2 camera (IMX219), 1) \"change camera_auto_detect=1\" to \"camera_auto_detect=0\", 2) Add \"dtoverlay=imx219\" beneath the \"[all]\" tag. Press ENTER to open the file..."
-#sudo vim /boot/firmware/config.txt
