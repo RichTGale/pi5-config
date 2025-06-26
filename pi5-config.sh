@@ -79,7 +79,7 @@ if [ "$response" != "n" ]; then
     sudo apt update
     sudo apt upgrade -y
     sudo apt install git cmake gcc-arm-linux-gnueabihf libgdm1:armhf \ 
-    libudev1:armhf liblibudev1:armhf gl1-mesa-dri:armhf libglapi-mesa:armhf \
+    libudev1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf \
     libglu1-mesa:armhf libglx-mesa0:armhf mesa-va-drivers:armhf \
     mesa-vdpau-drivers:armhf mesa-vulkan-drivers:armhf libsdl1.2debian:armhf \
     libegl-mesa0:armhf libc6:armhf mesa-vulkan-drivers -y
