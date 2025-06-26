@@ -14,14 +14,13 @@ sudo apt update
 sudo apt full-upgrade -y
 
 printf "\nInstalling some utilities and dependencies...\n"
-sudo apt install vim git zsh dkms build-essential cmake unzip libelf-dev /
+sudo apt install vim git zsh dkms build-essential cmake unzip libelf-dev \
     linux-headers-$(uname -r) -y
 
 printf "\nConfiguring vim...\n"
 cd $HOME/Programming
-git clone https://github.com/RichTGale/vim-config.git
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp $HOME/Programming/vim-config/.vimrc $HOME/
+cp $HOME/Programming/pi5-config/.vimrc $HOME/
 vim -c PlugInstall
 
 printf "\nConfiguriing zsh...\n"
@@ -29,8 +28,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 cd $HOME/Programming
-git clone https://github.com/richtgale/zsh-config.git
-cp $HOME/Programming/zsh-config/.zshrc $HOME/
+cp $HOME/Programming/pi5-config/.zshrc $HOME/
 printf "\nSwitching default shell to zsh...\n"
 chsh -s $(which zsh)
 
