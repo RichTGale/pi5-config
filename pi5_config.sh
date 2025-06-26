@@ -14,7 +14,7 @@ sudo apt update
 sudo apt full-upgrade -y
 
 printf "\nInstalling some utilities and dependencies...\n"
-sudo apt install vim git zsh dkms build-essential libelf-dev linux-headers-$(uname -r) -y
+sudo apt install vim git zsh dkms build-essential unzip libelf-dev linux-headers-$(uname -r) -y
 
 printf "\nConfiguring vim...\n"
 cd $HOME/Programming
@@ -39,12 +39,21 @@ git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
 sudo make dkms_install
 
+printf "\nInstalling pigpio\n"
+cd $HOME/Programs
+wget https://github.com/joan2937/pigpio/archive/master.zip
+unzip master.zip
+rm -rf master.zip
+cd pigpio-master
+make
+sudo make install
+
 printf "\nYou now have the option to change swapfile space. Press ENTER to continue...\n"
 sudo dphys-swapfile swapoff
 sudo vim /etc/dphys-swapfile
 sudo dphys-swapfile setup
 sudo dphys-swapfile swapon
 
-sudo apt autoremove
+sudo apt autoremove -y
 #printf "\nIf you are installing a Pi camera, it might help to load the camera drivers explicitly...\nYou can find more info here: https://www.raspberrypi.com/documentation/computers/camera_software.html#configuration\nNote for Richard: For V2 camera (IMX219), 1) \"change camera_auto_detect=1\" to \"camera_auto_detect=0\", 2) Add \"dtoverlay=imx219\" beneath the \"[all]\" tag. Press ENTER to open the file..."
 #sudo vim /boot/firmware/config.txt
