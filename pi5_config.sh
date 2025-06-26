@@ -39,7 +39,7 @@ git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
 sudo make dkms_install
 
-printf "\nInstalling pigpio\n"
+printf "\nInstalling pigpio...\n"
 cd $HOME/Programs
 wget https://github.com/joan2937/pigpio/archive/master.zip
 unzip master.zip
