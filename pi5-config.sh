@@ -42,20 +42,6 @@ if [ "$response" != "n" ]; then
     sudo make dkms_install
 fi
 
-printf "\nWould you like to install pigpio (https://github.com/joan2937/pigpio)? It is a C library for programming the computer's GPIO pins. (Y/n): "
-read response
-printf "\n"
-if [ "$response" != "n" ]; then
-    printf "\nInstalling pigpio...\n"
-    cd $HOME/Programs
-    wget https://github.com/joan2937/pigpio/archive/master.zip
-    unzip master.zip
-    rm -rf master.zip
-    cd pigpio-master
-    make
-    sudo make install
-fi
-
 printf "\nWould you like to change the amount of space allocated to the swapfile? (Y/n): "
 read response
 printf "\n"
