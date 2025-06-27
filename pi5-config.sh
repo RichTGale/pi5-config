@@ -14,7 +14,7 @@ sudo apt update
 sudo apt full-upgrade -y
 
 printf "\nInstalling some utilities and dependencies...\n"
-sudo apt install vim git zsh dkms build-essential cmake unzip libelf-dev linux-headers-$(uname -r) -y
+sudo apt install vim git zsh dkms build-essential cmake make curl unzip libelf-dev linux-headers-$(uname -r) -y
 
 printf "\nConfiguring vim...\n"
 cd $HOME/Programming
@@ -74,9 +74,7 @@ printf "\n"
 if [ "$response" != "n" ]; then
     printf "\nBuilding and installing Steam dependencies...\n"
     sudo dpkg --add-architecture armhf
-    sudo apt update
-    sudo apt upgrade -y
-    sudo apt install git cmake gcc-arm-linux-gnueabihf libgdm1:armhf libudev1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf libglu1-mesa:armhf libglx-mesa0:armhf mesa-va-drivers:armhf mesa-vdpau-drivers:armhf mesa-vulkan-drivers:armhf libsdl1.2debian:armhf libegl-mesa0:armhf libc6:armhf mesa-vulkan-drivers -y
+    sudo apt install git gcc-arm-linux-gnueabihf libgdm1:armhf libudev1:armhf libgl1-mesa-dri:armhf libglapi-mesa:armhf libglu1-mesa:armhf libglx-mesa0:armhf mesa-va-drivers:armhf mesa-vdpau-drivers:armhf mesa-vulkan-drivers:armhf libsdl1.2debian:armhf libegl-mesa0:armhf libc6:armhf mesa-vulkan-drivers -y
 
     printf "\nBuilding and installing box64...\n"
     cd $HOME/Programs
@@ -107,7 +105,7 @@ read response
 printf "\n"
 if [ "$response" != "n" ]; then
     printf "\nInstalling SDL2...\n"
-    sudo apt install build-essential git make curl jq pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev fcitx-libs-dev -y
+    sudo apt install jq pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev fcitx-libs-dev -y
 
     cd $HOME/Programs
     version=$(curl -sL https://api.github.com/repos/libsdl-org/SDL/releases/latest | jq -r '.name')
